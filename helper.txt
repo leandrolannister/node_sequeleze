@@ -1,1 +1,9 @@
 npm init -y -> create the file packege.json
+
+npm install --save-dev nodemon
+
+npm install mysql2
+
+npm install sequelize sequelize-cli path
+
+npx sequelize-cli init
