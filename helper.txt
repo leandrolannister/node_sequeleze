@@ -16,3 +16,5 @@ DATABASE -> english_school
                                    sequelize's COMMANDS
 
 npx sequelize-cli model:create --name Pessoas --attributes nome:string,ativo:boolean,email:string,role:string
+
+npx sequelize-cli db:migrate -> Roda migration->executar dentro da pasta api.
