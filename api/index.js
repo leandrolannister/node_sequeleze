@@ -1,10 +1,9 @@
 const express = require('express');
-const bodyParse = require('body-parser');
+const routes = require('./routes');
+
 const port = 3000;
-
 const app = express();
-
-app.use(bodyParse.json());
+routes(app);
 
 app.get('/teste', (req, res) => res
   .status(200)

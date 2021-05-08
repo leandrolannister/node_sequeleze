@@ -1,12 +1,12 @@
 const database = require('../models/pessoas');
 
 class PessoaController{
-    static async show(req, resp){
+    static async show(req, res){
        try{
         const pessoas = await database.pessoas.findAll();
-        return resp.status(200).json(pessoas);
+        return res.status(200).json(pessoas);
        }catch(error){
-           return resp.status(500).json(error.message);
+           return res.status(500).json(error.message);
        }        
     }
 }
