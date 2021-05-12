@@ -5,5 +5,7 @@ const router = Router();
 
 router.get('/pessoas', PessoaController.show);
 
+router.get('/pessoas/:id', PessoaController.findOne);
+
 module.exports = router;
   
