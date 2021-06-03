@@ -21,7 +21,17 @@ class PessoaController{
         } catch (error) {
             return res.status(500).json(error.message);    
         }
-    }       
+    } 
+    
+    static async store(req, res) {
+        const pessoa = req.body
+        try {
+          const store = await database.Pessoas.create(pessoa);
+          return res.status(200).json({ message: `Pessoa: ${pessoa.nome} cadastrado com sucesso`});
+        } catch (error) {
+          return res.status(500).json(error.message)
+        }
+      }
 
     static async update(req, res){
         const { id } = req.params;
@@ -39,7 +49,7 @@ class PessoaController{
     static async destroy(req, res){
         try{
             await database.Pessoas.destroy({where: {id: Number(req.params.id)}});
-            return res.status(200).json({ message: `id: ${id} deletado`});
+            return res.status(200).json({ message: `id: ${req.params.id} deletado`});
         }catch(error){
             return res.status(500).json(error.message);
         }
