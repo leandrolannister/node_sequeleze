@@ -1,4 +1,4 @@
-const { Router } = require('express')
+const { Router } =  require('express')
 const TurmaController = require('../controllers/TurmaController')
 
 const router = Router()
