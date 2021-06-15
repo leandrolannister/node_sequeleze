@@ -8,7 +8,8 @@ router
 .get('/pessoas/:id', PessoaController.findOne)
 .post('/pessoas', PessoaController.store)
 .put('/pessoas/:id', PessoaController.update)
-.delete('/pessoas/:id', PessoaController.destroy);
+.delete('/pessoas/:id', PessoaController.destroy)
+.get('/pessoas/:estudanteId/matricula/:matriculaId', PessoaController.showMatricula);
 
 module.exports = router;
   
