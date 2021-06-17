@@ -69,11 +69,23 @@ class PessoaController{
             return (matricula == null)
             ? res.status(404).json(`not found`)
             : res.status(200).json({data: matricula});
+            
         }catch(error){
             return res.status(500).json(error.message);
         }
-        
-        
+    }
+
+    static async storeMatricula(req, resp){
+        const { estudanteId } = req.params;
+        const matricula = {...req.body, estudante_id: Number(estudanteId)};
+               
+        try{
+            const store = await database.Matriculas.create(matricula);
+            return resp.status(200).json({ message: `Matricula: cadastrado com sucesso`});
+            
+        }catch(error){
+            return resp.status(400).json(error.message);
+        }
     }
 
 
