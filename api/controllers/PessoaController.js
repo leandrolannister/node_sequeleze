@@ -101,11 +101,22 @@ class PessoaController{
 
         }catch(error){
             resp.status(400).json(error.message);
-        }
-
-        
+        }        
     }
 
-
+    static async updateMatricula(req, resp){
+        const { estudanteId, matriculaId } = req.params;
+              
+       try{
+           await database.Matriculas.update(req.body    , {
+               where:{ 
+                 id: Number(matriculaId),
+                 estudante_id: Number(estudanteId)} });
+            let m = await database.Matriculas.findOne({where:{id: matriculaId}});    
+           return resp.status(200).json(m);
+        }catch(error){
+            return resp.status(400).json(error.message);
+        }
+    }
 }
 module.exports = PessoaController;
