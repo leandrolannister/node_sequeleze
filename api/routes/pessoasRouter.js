@@ -10,7 +10,8 @@ router
 .put('/pessoas/:id', PessoaController.update)
 .delete('/pessoas/:id', PessoaController.destroy)
 .get('/pessoas/:estudanteId/matricula/:matriculaId', PessoaController.showMatricula)
-.post('/pessoas/:estudanteId/matricula', PessoaController.storeMatricula);
+.post('/pessoas/:estudanteId/matricula', PessoaController.storeMatricula)
+.delete('/pessoas/:estudanteId/matricula/:matriculaId', PessoaController.destroyMatricula);
 
 module.exports = router;
   

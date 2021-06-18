@@ -88,6 +88,24 @@ class PessoaController{
         }
     }
 
+    static async destroyMatricula(req, resp){
+        const { estudanteId, matriculaId } = req.params;
+
+        try{
+            await database.Matriculas.destroy({
+                where: {estudante_id: Number(estudanteId), 
+                        turma_id: Number(matriculaId)}
+            });
+            return resp.status(200).json("Registro excluído com sucesso!");
+            
+
+        }catch(error){
+            resp.status(400).json(error.message);
+        }
+
+        
+    }
+
 
 }
 module.exports = PessoaController;
